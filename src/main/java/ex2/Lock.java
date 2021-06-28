@@ -8,7 +8,7 @@ public class Lock {
     private boolean locked;
 
     public Lock() {
-        password = IntStream.range(0, 4)
+        password = "0" + IntStream.range(0, 3)
                 .mapToObj(i -> Integer.toString((int) (Math.random() * 9)))
                 .collect(Collectors.joining());
         locked = true;
