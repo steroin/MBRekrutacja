@@ -3,6 +3,7 @@ package ex2;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+// don't touch it
 public class Lock {
     private final String password;
     private boolean locked;
