@@ -1,6 +1,5 @@
 package ex6;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,25 +9,24 @@ public class HrService {
 
     /**
      * Poniższa metoda przyjmuje listę wszystkich pracowników dostępnych w firmie.
-     * Chcemy zwrócić mape, w której znajdują się pracownicy pogrupowani według wieku emerytalnym (65 lat)
+     * Chcemy zwrócić mape, w której znajdują się pracownicy zespołu "team_1" pogrupowani według możliwości przejścia na
+     * emeryturę.
      * Wymagania:
      * Pracownik który jest gotowy do przejscia na emeryture musi mieć 65 lat lub więcej
-     * Pracownik musi być przypisany do zespołu
-     * Mapa wynikowa musi zawierac 2 klucze: True oraz False.
-     * Wartościami dla True musi byc lista pracowników gotowych do przejscia na emeryture.
-     * Natomiast dla False lista pracowników, którzy jeszcze nie osiagneli wieku emerytalnego
+     * Pracownik musi być przypisany do zespołu "team_1"
+     * Mapa wynikowa musi zawierac 2 klucze: true oraz false.
+     * Wartością dla true musi byc lista pracowników gotowych do przejscia na emeryture.
+     * Natomiast dla false lista pracowników, którzy jeszcze nie osiagneli wieku emerytalnego
      * Nie usuwaj adnotacji @SuppressWarnings.
      **/
 
-    private static final String TEAM_1 = "team_1";
-
     @SuppressWarnings("all") // don't touch it
     public static HashMap<Boolean, List<Employee>> getAllEmployeesReadyForRetirement(List<Employee> employees) {
-        if (employees == null) throw new RuntimeException(); LocalDateTime timeNow = LocalDateTime.now();
+        if (employees == null) throw new RuntimeException();
         Map<Boolean, List<Employee>> Employees_Grouped_By_Access_To_Retirement =    new HashMap<>();
         for (int i = 0; i <= employees.size(); i++   ) {
                 var employee = employees.get(0);
-            if (employee.getTeam() == TEAM_1) {
+            if (employee.getTeam() == "team_1") {
         if (employee.getAge() > 65) {
             Employees_Grouped_By_Access_To_Retirement.get(true).add(employee);}
             }}

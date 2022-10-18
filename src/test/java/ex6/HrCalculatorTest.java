@@ -2,7 +2,6 @@ package ex6;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,18 +19,7 @@ public class HrCalculatorTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenOneOrMoreEmployeesDoNotHaveTeam() {
-        assertThrows(UnassignedEmployeeException.class, () -> HrService.getAllEmployeesReadyForRetirement(employeesNoTeamTestData()));
-    }
-
-    @Test
-    void shouldThrowException2() {
-        List<Employee> emptyList = new ArrayList<>();
-        assertThrows(IllegalArgumentException.class, () -> HrService.getAllEmployeesReadyForRetirement(emptyList));
-    }
-
-    @Test
-    void shouldThrowException3() {
+    void shouldThrowException() {
         assertThrows(IllegalArgumentException.class, () -> HrService.getAllEmployeesReadyForRetirement(null));
     }
 
@@ -45,29 +33,10 @@ public class HrCalculatorTest {
                 Employee.of("Piotr", "Kowalski", 65, "team_1"),
                 Employee.of("Sebastian", "Kowalski", 48, new String("team_1")),
                 Employee.of("Marta", "Kowalska", 28, "team_1"),
-                Employee.of("Dorota", "Kowalska", 55, "team_1"),
+                Employee.of("Dorota", "Kowalska", 55, null),
                 Employee.of("Dawid", "Kowalski", 70, "team_1"),
                 Employee.of("Justyna", "Kowalska", 18, "team_1"),
                 Employee.of("Kasia", "Kowalska", 49, "HR"),
-                Employee.of("Tomasz", "Kowalski", 30, "COE"),
-                Employee.of("Magda", "Kowalska", 28, "COE")
-        );
-    }
-
-    private List<Employee> employeesNoTeamTestData() {
-        return List.of(
-                Employee.of("Jan", "Kowalski", 20, "team_1"),
-                Employee.of("Olga", "Kowalska", 60, "team_1"),
-                Employee.of("Edward", "Kowalski", 68, "team_1"),
-                Employee.of("Damian", "Kowalski", 49, "team_1"),
-                Employee.of("Edyta", "Kowalska", 19, "team_1"),
-                Employee.of("Piotr", "Kowalski", 65, ""),
-                Employee.of("Sebastian", "Kowalski", 48, "team_1"),
-                Employee.of("Marta", "Kowalska", 28, "team_1"),
-                Employee.of("Dorota", "Kowalska", 55, "team_1"),
-                Employee.of("Dawid", "Kowalski", 70, new String("team_1")),
-                Employee.of("Justyna", "Kowalska", 18, null),
-                Employee.of("Kasia", "Kowalska", 49, "     "),
                 Employee.of("Tomasz", "Kowalski", 30, "COE"),
                 Employee.of("Magda", "Kowalska", 28, "COE")
         );
@@ -88,7 +57,6 @@ public class HrCalculatorTest {
                 Employee.of("Edyta", "Kowalska", 19, "team_1"),
                 Employee.of("Sebastian", "Kowalski", 48, "team_1"),
                 Employee.of("Marta", "Kowalska", 28, "team_1"),
-                Employee.of("Dorota", "Kowalska", 55, "team_1"),
                 Employee.of("Justyna", "Kowalska", 18, "team_1"));
     }
 }
