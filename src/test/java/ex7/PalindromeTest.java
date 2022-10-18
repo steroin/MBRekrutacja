@@ -26,6 +26,18 @@ public class PalindromeTest {
     }
 
     @Test
+    void shouldReturnTrue4() {
+        var actual = Palindrome.palindromeChecker("");
+        Assertions.assertThat(actual).isTrue();
+    }
+
+    @Test
+    void shouldReturnTrue5() {
+        var actual = Palindrome.palindromeChecker("   ");
+        Assertions.assertThat(actual).isTrue();
+    }
+
+    @Test
     void shouldReturnFalse() {
         var actual = Palindrome.palindromeChecker("Java");
         Assertions.assertThat(actual).isFalse();
@@ -34,15 +46,5 @@ public class PalindromeTest {
     @Test
     void shouldThrowException1() {
         assertThrows(IllegalArgumentException.class, () -> Palindrome.palindromeChecker(null));
-    }
-
-    @Test
-    void shouldThrowException2() {
-        assertThrows(IllegalArgumentException.class, () -> Palindrome.palindromeChecker(""));
-    }
-
-    @Test
-    void shouldThrowException3() {
-        assertThrows(IllegalArgumentException.class, () -> Palindrome.palindromeChecker("   "));
     }
 }
